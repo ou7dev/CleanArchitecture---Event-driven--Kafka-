@@ -35,14 +35,14 @@ public class StudentController {
     }
 
     @PostMapping("/create-student")
-    public void saveStudent(@RequestBody Student student) {
+    public Student saveStudent(@RequestBody Student student) {
 
         String name = student.getName();
         String email = student.getEmail();
         String password = student.getPassword();
         String role = student.getRole();
 
-        createUserUseCase.execute(name, email, password, role);
+        return createUserUseCase.execute(name, email, password, role);
     }
 
 }
